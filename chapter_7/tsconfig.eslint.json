@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true
+  },
+ // TypeScript ESLintでチェックする対象は、includeに追加していく必要がある
+  "include": ["src", ".*.js", "*.js"]
+}

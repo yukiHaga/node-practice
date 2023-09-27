@@ -1,0 +1,27 @@
+version: "3"
+services:
+  app:
+    build: .
+    tty: true
+    # ポートマッピング
+    ports:
+      - "3000:3000"
+    volumes:
+      # バインドマウント
+      - ./:/app
+      # ボリュームマウント
+      - node-volumes:/app/node_modules
+  db:
+    image: mysql:latest
+    volumes:
+      - todo_db_volume:/var/lib/mysql
+      - ./db/init/sqls:/docker-entrypoint-initdb.d
+      - ./db/conf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - 3366:3306
+
+volumes:
+  node-volumes:
+  todo_db_volume:

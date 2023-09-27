@@ -1,0 +1,6 @@
+# node_modulesはDockerイメージにホストからコピーしてはダメ。
+# gitでnode_modulesは無視しているから、新しく環境構築する人のディレクトリには当然だがnode_modulesは含まれていない。
+node_modules
+
+# パッケージのインストールや公開に失敗した場合、npm CLIは npm-debug.logファイルを生成します。
+npm-debug.log
